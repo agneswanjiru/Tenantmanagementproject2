@@ -9,13 +9,24 @@
         android:id="@+id/dashboardFragment"
         android:name="com.example.tenantmanagementproject.DashboardFragment"
         android:label="Dashboard"
-        tools:layout="@layout/fragment_add_tenant">
+        tools:layout="@layout/fragment_dashboard">
+
+        <!-- Added transition animations -->
         <action
             android:id="@+id/action_dashboardFragment_to_addTenantFragment"
-            app:destination="@id/addTenantFragment" />
+            app:destination="@id/addTenantFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
         <action
             android:id="@+id/action_dashboardFragment_to_viewTenantsFragment"
-            app:destination="@id/viewTenantsFragment" />
+            app:destination="@id/viewTenantsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -23,9 +34,12 @@
         android:name="com.example.tenantmanagementproject.AddTenantFragment"
         android:label="Add Tenant"
         tools:layout="@layout/fragment_add_tenant">
+
+        <!-- Added popUpTo so pressing Back returns to Dashboard instead of the form -->
         <action
             android:id="@+id/action_addTenantFragment_to_viewTenantsFragment"
-            app:destination="@id/viewTenantsFragment" />
+            app:destination="@id/viewTenantsFragment"
+            app:popUpTo="@id/dashboardFragment" />
     </fragment>
 
     <fragment
